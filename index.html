@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue Todo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+ 
+  <div id="todoApp" class="tasks-wrapper">
+
+    <h1 class="tasks-header">Список заданий</h1>
+
+    <form class="add-form" v-on:submit.prevent="addTask">
+      <input type="text" v-model="tasks.text">
+      <input type="submit" value="Добавить">
+    </form>
+
+    <ul class="task-list">
+      <li class="task" v-for="task in tasks">
+        <p class="task-item task-checkbox"><input type="checkbox" v-model="task.done"></p>
+        <p class="task-item task-text" v-bind:class="{ done: task.done }">{{ task.text }}</p>
+        <p class="task-item task-button"><button v-on:click="deleteTask(task)">Удалить</button></p>
+      </li>
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

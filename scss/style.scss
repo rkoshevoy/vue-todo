@@ -1,0 +1,51 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  outline: none;
+}
+
+.tasks-wrapper {
+  width: 600px;
+  max-height: 80vh;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .1);
+  overflow: auto;
+}
+
+.tasks-header {
+  font-family: Arial;
+}
+
+.task-list {
+  list-style: none;
+}
+
+.task-checkbox {
+
+}
+
+.task {
+  display: flex;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.task-item {
+
+}
+
+.done {
+  text-decoration: line-through;
+}
