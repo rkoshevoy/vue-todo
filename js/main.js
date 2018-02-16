@@ -1,8 +1,7 @@
 var app = new Vue({
   el: '#todoApp',
   data: {
-    tasks: [
-      {
+    tasks: [{
         text: 'Пойти домой',
         done: false
       },
@@ -17,12 +16,23 @@ var app = new Vue({
     ]
   },
   methods: {
+
     addTask: function() {
-      this.tasks.push({
-        text: this.tasks.text,
-        done: false
-      });
+
+      var inputTask = document.getElementById('newTaskText');
+
+      if (inputTask.value == '') {
+        alert('Заметка не может быть пустой!');
+      } else {
+        this.tasks.push({
+          text: this.tasks.text,
+          done: false
+        });
+
+        // inputTask.value = ''; 
+      }
     },
+
     deleteTask: function(task) {
       this.tasks.splice(this.tasks.indexOf(task), 1)
     }
