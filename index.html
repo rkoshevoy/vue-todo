@@ -16,18 +16,18 @@
     <h1 class="tasks-header">Список заданий</h1>
 
     <form class="add-form" v-on:submit.prevent="addTask">
-      <input type="text" v-model="tasks.text" id="newTaskText" class="add-form-input" placeholder="Введите заметку">
-      <input type="submit" value="Добавить" class="add-form-button">
+      <input type="text" autocomplete="off" v-model="tasks.text" id="newTaskText" class="add-form-input" placeholder="Введите заметку">
+      <input type="submit" value="Добавить" class="add-form-button" v-on:click="clearInput">
     </form>
 
-    <ul class="task-list">
-      <li class="task" v-for="task in tasks">
+    <ul class="task-list" id="taskList">
+      <li class="task" v-for="task in tasks" v-bind:class="{ done: task.done }" v-on:change="replaceTask">
         <label class="task-checkbox">
           <input type="checkbox" v-model="task.done">
-          <p class="task-text" v-bind:class="{ done: task.done }">{{ task.text }}</p>
+          <p class="task-text">{{ task.text }}</p>
         </label>
 
-        <button class="task-delete" v-on:click="deleteTask(task)">х</button>
+        <button class="task-delete" v-on:click="deleteTask(task)">&times;</button>
       </li>
     </ul>
 

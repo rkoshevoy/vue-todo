@@ -28,13 +28,23 @@ var app = new Vue({
           text: this.tasks.text,
           done: false
         });
-
-        // inputTask.value = ''; 
       }
+    },
+
+    clearInput: function() {
+      setTimeout(function(){
+        document.getElementById('newTaskText').value = '';
+      }, 1)
     },
 
     deleteTask: function(task) {
       this.tasks.splice(this.tasks.indexOf(task), 1)
+    },
+
+    replaceTask: function() {
+      setTimeout(function(){
+        
+      }, 500)
     }
   }
 })
